@@ -3,13 +3,14 @@ The OpenLautrec Project est un traitement de texte et outils de feuille de géom
 Ce logiciel est développé exclusivement en Python et sert à aider les élèves de l'EREA Toulouse-Lautrec. 
 
 But du logiciel : 
-  ✅ Mise en forme complète du texte
-  ✅ Tableaux et listes
-  ✅ Symboles mathématiques et spéciaux
-  ✅ Export PDF et impression
-  ✅ Formats .docx, .odt, .html, .txt, .html
-  ✅ Dictée vocale en français 🎤
-  ✅ Lecture vocale 🔊
+  - Mise en forme complète du texte
+  - Tableaux et listes
+  - Symboles mathématiques et spéciaux
+  - Export PDF et impression
+  - Formats .docx, .odt, .html, .txt, .olc
+  - Dictée vocale en français 🎤
+  - Lecture vocale 🔊
+  - Mode Dyslexie  
 
 ## Comment installer le logiciel OpenLautrec
 
