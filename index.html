@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OpenLautrec - Traitement de texte accessible</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="logo.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="logo.ico">
+    
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -59,6 +64,15 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
         }
 
         .nav-links {
@@ -405,6 +419,20 @@
             text-align: center;
         }
 
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
         .footer-container p {
             color: #ADB5BD;
             margin-bottom: 1rem;
@@ -518,6 +546,11 @@
             .cta-buttons {
                 flex-direction: column;
             }
+
+            .logo img {
+                width: 32px;
+                height: 32px;
+            }
         }
 
         /* Animation for scroll */
@@ -537,7 +570,10 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">OpenLautrec</div>
+            <div class="logo">
+                <img src="logo.ico" alt="Logo OpenLautrec">
+                <span>OpenLautrec</span>
+            </div>
             <ul class="nav-links">
                 <li><a href="#" onclick="showPage('home')">Accueil</a></li>
                 <li><a href="#" onclick="showPage('features')">Fonctionnalités</a></li>
@@ -742,8 +778,8 @@
                             Ce logiciel est et dois rester utilisé à des fins éducatives. La version disponible n'est pas la dernière version d'OpenLautrec.
                             La version final de développement (bugs et ralentissements probables, à ne pas déployer pour une utilisation scolaire) n'est accessible qu'en contactant le développeur:
                         </li>
-
-            
+                    </p>
+                </div>
 
                 <div class="download-info" style="margin-top: 2rem;">
                     <h3>Installation</h3>
@@ -770,13 +806,16 @@
     <!-- Footer -->
     <footer>
         <div class="footer-container">
-            <div class="logo" style="font-size: 2rem; margin-bottom: 1rem;">OpenLautrec</div>
+            <div class="footer-logo">
+                <img src="logo.ico" alt="Logo OpenLautrec">
+                <div class="logo" style="font-size: 2rem;">OpenLautrec</div>
+            </div>
             <p>Développé avec ❤️ pour les élèves de l'EREA Toulouse-Lautrec</p>
             <p>Un projet open-source sous licence MIT</p>
             <div class="footer-links">
                 <a href="https://github.com/Zyvaouech23">GitHub</a>
                 <a href="#">Documentation</a>
-                <a href="06 52 53 01 81">Contact et contribution</a>
+                <a href="tel:0652530181">Contact et contribution</a>
             </div>
             <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7;">© 2026 OpenLautrec - Tous droits réservés</p>
         </div>
