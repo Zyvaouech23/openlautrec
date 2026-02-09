@@ -1,1 +1,869 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenLautrec - Traitement de texte accessible</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="logo.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="logo.ico">
+    
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --primary: #FF6B35;
+            --secondary: #004E89;
+            --accent: #F7B32B;
+            --dark: #1A1A2E;
+            --light: #F8F9FA;
+            --gradient: linear-gradient(135deg, #FF6B35 0%, #F7B32B 100%);
+            --shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--dark);
+            background: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Space Mono', monospace;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #F8F9FA 0%, #E9ECEF 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-30px, -30px) rotate(5deg); }
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-content .highlight {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: #6C757D;
+            margin-bottom: 2rem;
+            animation: slideInLeft 0.8s ease-out 0.2s both;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            animation: slideInLeft 0.8s ease-out 0.4s both;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .software-mockup {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .mockup-header {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .mockup-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #FF5F56; }
+        .dot-yellow { background: #FFBD2E; }
+        .dot-green { background: #27C93F; }
+
+        .mockup-content {
+            background: #F8F9FA;
+            border-radius: 10px;
+            padding: 1.5rem;
+            min-height: 300px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 6rem 2rem;
+            background: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #6C757D;
+            font-size: 1.25rem;
+            margin-bottom: 4rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .feature-card p {
+            color: #6C757D;
+            line-height: 1.8;
+        }
+
+        /* Download Section */
+        .download {
+            padding: 6rem 2rem;
+            background: var(--dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
+        }
+
+        .download-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .download h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .download p {
+            font-size: 1.25rem;
+            margin-bottom: 3rem;
+            color: #CED4DA;
+        }
+
+        .download-info {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-top: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .download-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .requirements {
+            text-align: left;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .requirements li {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .requirements li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #0F0F1E;
+            color: white;
+            padding: 3rem 2rem 1.5rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo img {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+        }
+
+        .footer-container p {
+            color: #ADB5BD;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links a {
+            color: #ADB5BD;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Page Sections (hidden by default) */
+        .page-section {
+            display: none;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        /* Detailed Features Page */
+        .features-detailed {
+            padding: 8rem 2rem 4rem;
+            min-height: 100vh;
+        }
+
+        .feature-detail {
+            max-width: 1000px;
+            margin: 0 auto 4rem;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        .feature-detail h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .feature-badge {
+            display: inline-block;
+            background: var(--gradient);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .feature-detail ul {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .feature-detail ul li {
+            padding: 1rem 0;
+            padding-left: 2rem;
+            position: relative;
+            border-bottom: 1px solid #E9ECEF;
+        }
+
+        .feature-detail ul li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-detail ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .logo img {
+                width: 32px;
+                height: 32px;
+            }
+        }
+
+        /* Animation for scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo.ico" alt="Logo OpenLautrec">
+                <span>OpenLautrec</span>
+            </div>
+            
+          
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home-page" class="page-section active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1>Le traitement de texte <span class="highlight">pour tous</span></h1>
+                    <p>OpenLautrec est un logiciel de traitement de texte innovant développé en Python, spécialement conçu pour les élèves de l'EREA Toulouse-Lautrec avec des besoins d'accessibilité avancés.</p>
+                    <div class="cta-buttons">
+                        <a href="#" onclick="showPage('download')" class="btn btn-primary">Télécharger gratuitement</a>
+                        <a href="#" onclick="showPage('features')" class="btn btn-secondary">Découvrir les fonctionnalités</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="software-mockup">
+                        <div class="mockup-header">
+                            <div class="mockup-dot dot-red"></div>
+                            <div class="mockup-dot dot-yellow"></div>
+                            <div class="mockup-dot dot-green"></div>
+                        </div>
+                        <div class="mockup-content">
+                            <p style="margin-bottom: 1rem;">🎤 Reconnaissance vocale active...</p>
+                            <p style="margin-bottom: 1rem;">📝 "Bonjour, je m'appelle..."</p>
+                            <p style="color: var(--primary); font-weight: 700;">✓ Mode dyslexie activé</p>
+                            <p style="margin-top: 2rem; opacity: 0.6;">Tapez ou parlez pour commencer...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Preview -->
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Des fonctionnalités pensées pour l'accessibilité</h2>
+                <p class="section-subtitle">OpenLautrec intègre des outils innovants pour faciliter l'apprentissage et l'autonomie</p>
+                <div class="features-grid">
+                    <div class="feature-card fade-in">
+                        <h3>Reconnaissance vocale</h3>
+                        <p>Dictez vos textes naturellement. OpenLautrec convertit votre voix en texte en temps réel avec une précision remarquable.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <h3>Synthèse vocale</h3>
+                        <p>Écoutez vos textes lus à voix haute. Parfait pour la relecture et la vérification de vos écrits.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <h3>Mode dyslexie</h3>
+                        <p>Police adaptée, espacement optimisé et coloration syllabique pour faciliter la lecture et l'écriture.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <h3>Calculatrice intégrée</h3>
+                        <p>Effectuez vos calculs sans quitter votre document. Module complet avec toutes les opérations essentielles.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <h3>Module géométrie</h3>
+                        <p>Créez des figures géométriques directement dans vos documents avec des outils intuitifs.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <h3>100% Python</h3>
+                        <p>Développé entièrement en Python, un logiciel libre, open-source et personnalisable selon vos besoins.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FEATURES PAGE -->
+    <div id="features-page" class="page-section">
+        <section class="features-detailed">
+            <div class="container">
+                <h2 class="section-title">Toutes les fonctionnalités</h2>
+                <p class="section-subtitle">Découvrez en détail ce qui fait d'OpenLautrec un outil unique</p>
+
+                <div class="feature-detail fade-in">
+                    <h3>🎤 Reconnaissance vocale vers texte</h3>
+                    <span class="feature-badge">Dictée en temps réel</span>
+                    <p>La technologie de reconnaissance vocale intégrée permet aux élèves de dicter leurs textes naturellement, sans avoir à taper au clavier. Cette fonctionnalité est particulièrement utile pour les élèves ayant des difficultés motrices ou d'écriture.</p>
+                    <ul>
+                        <li>Reconnaissance en français avec haute précision</li>
+                        <li>Conversion en temps réel pendant que vous parlez</li>
+                        <li>Correction automatique des erreurs courantes</li>
+                        <li>Support de la ponctuation vocale ("virgule", "point", etc.)</li>
+                        <li>Possibilité de dicter des commandes de formatage</li>
+                    </ul>
+                </div>
+
+                <div class="feature-detail fade-in">
+                    <h3>🔊 Synthèse vocale (Texte vers Parole)</h3>
+                    <span class="feature-badge">Lecture audio</span>
+                    <p>OpenLautrec peut lire à voix haute n'importe quel texte sélectionné, permettant aux élèves de vérifier leur travail par l'écoute et favorisant la compréhension.</p>
+                    <ul>
+                        <li>Voix naturelles et fluides en français</li>
+                        <li>Contrôle de la vitesse de lecture</li>
+                        <li>Surlignage synchronisé du texte lu</li>
+                        <li>Lecture de mots, phrases ou documents entiers</li>
+                        <li>Pause et reprise à tout moment</li>
+                    </ul>
+                </div>
+
+                <div class="feature-detail fade-in">
+                    <h3>👁️ Mode dyslexie</h3>
+                    <span class="feature-badge">Accessibilité visuelle</span>
+                    <p>Un mode spécialement conçu pour faciliter la lecture et l'écriture pour les personnes dyslexiques, avec des adaptations visuelles scientifiquement prouvées.</p>
+                    <ul>
+                        <li>Police OpenDyslexic avec lettres différenciées</li>
+                        <li>Espacement entre lettres et lignes augmenté</li>
+                        <li>Coloration alternée des syllabes</li>
+                        <li>Surlignage de la ligne active</li>
+                        <li>Contrastes optimisés pour réduire la fatigue visuelle</li>
+                        <li>Règle de lecture virtuelle ajustable</li>
+                    </ul>
+                </div>
+
+                <div class="feature-detail fade-in">
+                    <h3>🧮 Module de calculatrice</h3>
+                    <span class="feature-badge">Outils mathématiques</span>
+                    <p>Une calculatrice complète intégrée directement dans l'éditeur de texte pour effectuer tous types de calculs sans changer d'application.</p>
+                    <ul>
+                        <li>Opérations de base (addition, soustraction, multiplication, division)</li>
+                        <li>Fonctions scientifiques (racine carrée, puissance, pourcentage)</li>
+                        <li>Historique des calculs</li>
+                        <li>Insertion directe des résultats dans le texte</li>
+                        <li>Support des expressions mathématiques complexes</li>
+                        <li>Mode calculatrice vocale (dictez vos opérations)</li>
+                    </ul>
+                </div>
+
+                <div class="feature-detail fade-in">
+                    <h3>📐 Module géométrie</h3>
+                    <span class="feature-badge">Création graphique</span>
+                    <p>Des outils de dessin géométrique permettant de créer des figures et schémas directement dans vos documents.</p>
+                    <ul>
+                        <li>Outils de tracé : lignes, cercles, polygones, angles</li>
+                        <li>Règle et compas virtuels</li>
+                        <li>Mesures automatiques (longueurs, angles, aires)</li>
+                        <li>Grille et repères magnétiques</li>
+                        <li>Annotation et légendage des figures</li>
+                        <li>Export des figures en haute qualité</li>
+                    </ul>
+                </div>
+
+                <div class="feature-detail fade-in">
+                    <h3>⚙️ Autres fonctionnalités</h3>
+                    <span class="feature-badge">Et plus encore...</span>
+                    <p>OpenLautrec inclut toutes les fonctionnalités essentielles d'un traitement de texte moderne, avec une interface simplifiée et accessible.</p>
+                    <ul>
+                        <li>Formatage de texte complet (gras, italique, souligné, couleurs)</li>
+                        <li>Vérification orthographique et grammaticale</li>
+                        <li>Insertion d'images et de tableaux</li>
+                        <li>Modèles de documents prédéfinis</li>
+                        <li>Export en PDF, DOCX et autres formats</li>
+                        <li>Interface personnalisable avec thèmes clairs et sombres</li>
+                        <li>Raccourcis clavier configurables</li>
+                        <li>Sauvegarde automatique</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- DOWNLOAD PAGE -->
+    <div id="download-page" class="page-section">
+        <section class="download">
+            <div class="download-container">
+                <h2>Télécharger OpenLautrec</h2>
+                <p>Gratuit, libre et open-source. Disponible pour Windows, macOS et Linux.</p>
+                
+                <a href="https://github.com/Zyvaouech23/openlautrec/releases/download/OpenLautrec/OpenLautrec-Setup.exe" class="btn btn-primary" style="font-size: 1.2rem; padding: 1.5rem 3rem;">
+                    Télécharger OpenLautrec v1.3.8
+                </a>
+
+                <div class="download-info">
+                    <h3>Configuration requise</h3>
+                    <ul class="requirements">
+                        <li>Python 3.7 ou supérieur (non obligatoire, logiciel déjà compilé)</li>
+                        <li>2 GB de RAM minimum (4 GB recommandé)</li>
+                        <li>500 MB d'espace disque disponible</li>
+                        <li>Microphone pour la reconnaissance vocale</li>
+                        <li>Haut-parleurs ou casque pour la synthèse vocale</li>
+                        <li>Windows 10/11, macOS 10.14+, ou Linux (Ubuntu, Debian ou Linux)</li>
+                    </ul>
+                </div>
+
+                <div class="download-info">
+                    <h3>Informations d'accessibilités</h3>
+                    <p style="text-align: center; margin-top: 0.5rem;">
+                        <li>
+                            Ce logiciel est et dois rester utilisé à des fins éducatives. La version disponible n'est pas la dernière version d'OpenLautrec.
+                            La version final de développement (bugs et ralentissements probables, à ne pas déployer pour une utilisation scolaire) n'est accessible qu'en contactant le développeur.
+                        </li>
+                    </p>
+                </div>
+
+                <div class="download-info" style="margin-top: 2rem;">
+                    <h3>Installation</h3>
+                    <p style="text-align: left; margin-top: 1rem;">
+                        <strong>1.</strong> Téléchargez le fichier d'installation ci-dessus<br><br>
+                        <strong>2.</strong> Assurez-vous d'avoir correctement installé toutes les mises à jours sur votre PC<br><br>
+                        <strong>3.</strong> Décompressez l'archive et exécutez le fichier <code style="background: rgba(255,255,255,0.2); padding: 0.2rem 0.5rem; border-radius: 5px;">OpenLautrec-Setup.exe</code><br><br>
+                        <strong>4.</strong> Suivez les instructions à l'écran<br><br>
+                        <strong>5.</strong> Lancez OpenLautrec depuis votre menu d'applications
+                    </p>
+                </div>
+
+                <div class="download-info" style="margin-top: 2rem;">
+                    <h3>Besoin d'aide ?</h3>
+                    <p>Consultez notre documentation complète ou contactez le support technique de l'EREA Toulouse-Lautrec pour toute assistance.</p>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="#" class="btn btn-secondary">📚 Documentation</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="logo.ico" alt="Logo OpenLautrec">
+                <div class="logo" style="font-size: 2rem;">OpenLautrec</div>
+            </div>
+            <p>Développé avec ❤️ pour les élèves de l'EREA Toulouse-Lautrec</p>
+            <p>Un projet open-source sous licence MIT</p>
+            <div class="footer-links">
+                <a href="https://github.com/Zyvaouech23">GitHub</a>
+                <a href="#">Documentation</a>
+                <a href="tel:0652530181">Contact et contribution</a>
+            </div>
+            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.7;">© 2026 OpenLautrec - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageName) {
+            // Hide all pages
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageName + '-page').classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Trigger animations
+            setTimeout(() => {
+                const elements = document.querySelectorAll('.fade-in');
+                elements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('visible');
+                    }, index * 100);
+                });
+            }, 100);
+        }
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(el => observer.observe(el));
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
