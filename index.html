@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OpenLautrec - Traitement de texte accessible</title>
     
-    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="logo.ico">
     <link rel="shortcut icon" type="image/x-icon" href="logo.ico">
     
@@ -35,7 +34,6 @@
             line-height: 1.6;
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -104,7 +102,6 @@
             width: 100%;
         }
 
-        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -265,7 +262,6 @@
             color: var(--secondary);
         }
 
-        /* Features Section */
         .features {
             padding: 6rem 2rem;
             background: white;
@@ -333,7 +329,6 @@
             line-height: 1.8;
         }
 
-        /* Download Section */
         .download {
             padding: 6rem 2rem;
             background: var(--dark);
@@ -406,7 +401,6 @@
             font-weight: bold;
         }
 
-        /* Footer */
         footer {
             background: #0F0F1E;
             color: white;
@@ -457,7 +451,6 @@
             color: var(--accent);
         }
 
-        /* Page Sections (hidden by default) */
         .page-section {
             display: none;
         }
@@ -466,7 +459,6 @@
             display: block;
         }
 
-        /* Detailed Features Page */
         .features-detailed {
             padding: 8rem 2rem 4rem;
             min-height: 100vh;
@@ -524,7 +516,6 @@
             font-weight: bold;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .hero-container {
                 grid-template-columns: 1fr;
@@ -553,7 +544,6 @@
             }
         }
 
-        /* Animation for scroll */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -567,7 +557,6 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <div class="logo">
@@ -582,9 +571,7 @@
         </div>
     </nav>
 
-    <!-- HOME PAGE -->
     <div id="home-page" class="page-section active">
-        <!-- Hero Section -->
         <section class="hero">
             <div class="hero-container">
                 <div class="hero-content">
@@ -613,7 +600,6 @@
             </div>
         </section>
 
-        <!-- Features Preview -->
         <section class="features">
             <div class="container">
                 <h2 class="section-title">Des fonctionnalités pensées pour l'accessibilité</h2>
@@ -648,7 +634,6 @@
         </section>
     </div>
 
-    <!-- FEATURES PAGE -->
     <div id="features-page" class="page-section">
         <section class="features-detailed">
             <div class="container">
@@ -742,7 +727,6 @@
         </section>
     </div>
 
-    <!-- DOWNLOAD PAGE -->
     <div id="download-page" class="page-section">
         <section class="download">
             <div class="download-container">
@@ -750,7 +734,7 @@
                 <p>Gratuit, libre et open-source. Disponible pour Windows, macOS et Linux.</p>
                 
                 <a href="https://github.com/Zyvaouech23/openlautrec/releases/download/OpenLautrec/OpenLautrec-Setup.exe" class="btn btn-primary" style="font-size: 1.2rem; padding: 1.5rem 3rem;">
-                    Télécharger OpenLautrec v1.3.12
+                    Télécharger OpenLautrec v1.4.3
                 </a>
 
                 <div class="download-info">
@@ -769,7 +753,7 @@
                     <h3>Informations d'accessibilités</h3>
                     <p style="text-align: center; margin-top: 0.5rem;">
                         <li>
-                            Ce logiciel est et dois rester utilisé à des fins éducatives. La version disponible n'est pas la dernière version d'OpenLautrec.
+                            <strong>Avertissement</strong>Ce logiciel est et dois rester utilisé à des fins éducatives. La version disponible n'est probablement pas la dernière version d'OpenLautrec.
                             La version final de développement (bugs et ralentissements probables, à ne pas déployer pour une utilisation scolaire) n'est accessible qu'en contactant le développeur.
                         </li>
                     </p>
@@ -780,7 +764,7 @@
                     <p style="text-align: left; margin-top: 1rem;">
                         <strong>1.</strong> Téléchargez le fichier d'installation ci-dessus<br><br>
                         <strong>2.</strong> Assurez-vous d'avoir correctement installé toutes les mises à jours sur votre PC<br><br>
-                        <strong>3.</strong> Décompressez l'archive et exécutez le fichier <code style="background: rgba(255,255,255,0.2); padding: 0.2rem 0.5rem; border-radius: 5px;">OpenLautrec-Setup.exe</code><br><br>
+                        <strong>3.</strong> Exécutez le programme d'installation <code style="background: rgba(255,255,255,0.2); padding: 0.2rem 0.5rem; border-radius: 5px;">OpenLautrec-Setup.exe</code><br><br>
                         <strong>4.</strong> Suivez les instructions à l'écran<br><br>
                         <strong>5.</strong> Lancez OpenLautrec depuis votre menu d'applications
                     </p>
@@ -797,7 +781,6 @@
         </section>
     </div>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-container">
             <div class="footer-logo">
@@ -817,18 +800,14 @@
 
     <script>
         function showPage(pageName) {
-            // Hide all pages
             document.querySelectorAll('.page-section').forEach(section => {
                 section.classList.remove('active');
             });
             
-            // Show selected page
             document.getElementById(pageName + '-page').classList.add('active');
             
-            // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
             
-            // Trigger animations
             setTimeout(() => {
                 const elements = document.querySelectorAll('.fade-in');
                 elements.forEach((el, index) => {
@@ -839,7 +818,6 @@
             }, 100);
         }
 
-        // Scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -858,7 +836,6 @@
             elements.forEach(el => observer.observe(el));
         });
 
-        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
