@@ -347,6 +347,46 @@
             background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
         }
 
+        .download-dropdown{
+            display:inline-flex;
+            position:relative;
+        }
+
+        .download-main{
+            border-radius:50px 0 0 50px;
+        }
+
+        .download-arrow{
+            border-radius:0 50px 50px 0;
+            padding:1.5rem;
+            width:60px;
+        }
+
+        .download-menu{
+            position:absolute;
+            top:100%;
+            left:0;
+            background:white;
+            border-radius:10px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.15);
+            display:none;
+            flex-direction:column;
+            min-width:220px;
+            overflow:hidden;
+            margin-top:10px;
+        }
+
+        .download-menu a{
+            padding:1rem 1.5rem;
+            text-decoration:none;
+            color:#1A1A2E;
+            font-weight:500;
+        }
+
+        .download-menu a:hover{
+            background:#F8F9FA;
+        }
+        
         .download-container {
             max-width: 800px;
             margin: 0 auto;
@@ -733,9 +773,23 @@
                 <h2>Télécharger OpenLautrec</h2>
                 <p>Gratuit, libre et open-source. Disponible pour Windows, macOS et Linux.</p>
                 
-                <a href="https://github.com/Zyvaouech23/openlautrec/releases/download/OpenLautrec/OpenLautrec-Setup.deb" class="btn btn-primary" style="font-size: 1.2rem; padding: 1.5rem 3rem;">
-                    Télécharger v.1.4.11 - Linux
-                </a>
+                <div class="download-dropdown">
+                    <a href="https://github.com/Zyvaouech23/openlautrec/releases/download/OpenLautrec/OpenLautrec-Setup.exe"
+                       class="btn btn-primary download-main">
+                       Télécharger v.1.4.11
+                    </a>
+
+                    <button class="btn btn-primary download-arrow" onclick="toggleDownloadMenu()">▾</button>
+
+                    <div id="download-menu" class="download-menu">
+                        <a href="https://github.com/Zyvaouech23/openlautrec/releases/download/OpenLautrec/OpenLautrec-Setup.exe">
+                            Windows (.exe)
+                        </a>
+                        <a href="https://github.com/Zyvaouech23/openlautrec/releases/download/OpenLautrec/OpenLautrec-Setup.deb">
+                            Linux (.deb)
+                        </a>
+                    </div>
+                </div>
 
                 <div class="download-info">
                     <h3>Configuration requise</h3>
@@ -799,6 +853,22 @@
     </footer>
 
     <script>
+        function toggleDownloadMenu() {
+            const menu = document.getElementById("download-menu");
+
+            if(menu.style.display === "flex"){
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "flex";
+            }
+        }
+
+        document.addEventListener("click", function(e){
+            if(!e.target.closest(".download-dropdown")){
+                document.getElementById("download-menu").style.display="none";
+            }
+        });
+        
         function showPage(pageName) {
             document.querySelectorAll('.page-section').forEach(section => {
                 section.classList.remove('active');
