@@ -18,5 +18,7 @@ La procédure correct se présente comme suit :
 
 - Rendez-vous sur le site https://openlautrec-se4fs.onrender.com/#
 - Téléchargez la dernière version d'OpenLautrec
+
+Vous pouvez aussi retrouver le code source de ce projet sur le github OpenLautrec : https://github.com/Zyvaouech23/openlautrec
   
 
