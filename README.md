@@ -1,3 +1,4 @@
+<img width="256" height="256" alt="image" src="https://github.com/user-attachments/assets/29c152f6-fd81-4c2c-99ba-6881b7b43431" />
 # Openlautrec
 The OpenLautrec Project est un traitement de texte et outils de feuille de géométrie adapté pour le lycée Toulouse-Lautrec.
 Ce logiciel est développé exclusivement en Python et sert à aider les élèves de l'EREA Toulouse-Lautrec. 
