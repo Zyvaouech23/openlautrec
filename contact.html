@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — OpenLautrec</title>
+
+    <meta name="description" content="Contactez l'équipe OpenLautrec : support technique, signalement de bug, suggestions, partenariats. Réponses aux questions fréquentes sur l'installation et l'accessibilité.">
+    <meta name="theme-color" content="#FF6B35">
+    <link rel="canonical" href="https://openlautrec-se4fs.onrender.com/contact.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:title" content="Contact — OpenLautrec">
+    <meta property="og:description" content="Une question ? Un problème ? Contactez l'équipe OpenLautrec.">
+    <meta property="og:url" content="https://openlautrec-se4fs.onrender.com/contact.html">
+    <meta property="og:image" content="assets/logo.svg">
+
+    <link rel="icon" type="image/ico" href="assets/logo.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <a class="skip-link" href="#main">Aller au contenu principal</a>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo" aria-label="OpenLautrec, accueil">
+                <img src="assets/logo.ico" alt="" width="40" height="40">
+                <span class="logo-text">OpenLautrec</span>
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="index.html#features">Fonctionnalités</a></li>
+                <li><a href="index.html#download">Télécharger</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contactez-nous</h2>
+            <p class="section-subtitle">Une question ? Un problème ? Notre équipe est là pour vous aider</p>
+
+            <div class="contact-grid">
+                <div class="contact-form-card">
+                    <h3>Envoyez-nous un message</h3>
+                    <div class="success-message" id="successMessage" role="status" aria-live="polite">
+                        Votre client mail va s'ouvrir avec votre message pré-rempli. Merci de votre prise de contact !
+                    </div>
+                    <form id="contactForm" novalidate>
+                        <div class="form-group">
+                            <label for="name">Nom complet *</label>
+                            <input type="text" id="name" name="name" required autocomplete="name" placeholder="Votre nom">
+                            <p class="field-error" data-error-for="name" aria-live="polite"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required autocomplete="email" placeholder="votre.email@exemple.com">
+                            <p class="field-error" data-error-for="email" aria-live="polite"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Sujet *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Sélectionnez un sujet</option>
+                                <option value="support">Support technique</option>
+                                <option value="bug">Signaler un bug</option>
+                                <option value="feature">Suggestion de fonctionnalité</option>
+                                <option value="education">Question éducative</option>
+                                <option value="partnership">Partenariat</option>
+                                <option value="other">Autre</option>
+                            </select>
+                            <p class="field-error" data-error-for="subject" aria-live="polite"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required placeholder="Décrivez votre demande en détail..."></textarea>
+                            <p class="field-error" data-error-for="message" aria-live="polite"></p>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                    </form>
+                </div>
+
+                <div class="contact-info-card">
+                    <div class="info-card">
+                        <div class="info-card-header">
+                            <div class="info-icon" aria-hidden="true">✉️</div>
+                            <h4>Email</h4>
+                        </div>
+                        <p>Pour toute question ou demande de support :</p>
+                        <a href="mailto:kasperweis23@gmail.com">kasperweis23@gmail.com</a>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-card-header">
+                            <div class="info-icon" aria-hidden="true">📞</div>
+                            <h4>Téléphone</h4>
+                        </div>
+                        <p>Assistance téléphonique :</p>
+                        <a href="tel:+33652530181">06 52 53 01 81</a>
+                        <p style="font-size: 0.9rem; margin-top: 0.5rem; font-style: italic;">Lundi - Vendredi, 9h - 18h</p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-card-header">
+                            <div class="info-icon" aria-hidden="true">🏫</div>
+                            <h4>Établissement</h4>
+                        </div>
+                        <p>EREA Toulouse-Lautrec</p>
+                        <address style="font-size: 0.95rem; line-height: 1.6; font-style: normal; color: var(--muted);">
+                            Établissement Régional d'Enseignement Adapté<br>
+                            131 Avenue de la Celle-Saint-Cloud<br>
+                            92076 Vaucresson
+                        </address>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-card-header">
+                            <div class="info-icon" aria-hidden="true">💻</div>
+                            <h4>Développement</h4>
+                        </div>
+                        <p>Contribuez au projet open-source :</p>
+                        <a href="https://github.com/Zyvaouech23/openlautrec" target="_blank" rel="noopener noreferrer">GitHub - OpenLautrec</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h3>Questions fréquentes</h3>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a1">
+                        Comment installer OpenLautrec sur mon ordinateur ?
+                        <span class="faq-chevron" aria-hidden="true">▾</span>
+                    </button>
+                    <div class="faq-answer" id="faq-a1">
+                        Téléchargez le fichier d'installation depuis la page de téléchargement, puis exécutez OpenLautrec-Setup.exe. Suivez les instructions à l'écran. Un guide d'installation détaillé est disponible dans la documentation.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a2">
+                        OpenLautrec est-il compatible avec Windows 11 ?
+                        <span class="faq-chevron" aria-hidden="true">▾</span>
+                    </button>
+                    <div class="faq-answer" id="faq-a2">
+                        Oui, OpenLautrec est entièrement compatible avec Windows 10 et Windows 11. Il fonctionne également sur macOS 10.14+ et les distributions Linux principales (Ubuntu, Debian).
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a3">
+                        La reconnaissance vocale fonctionne-t-elle sans connexion Internet ?
+                        <span class="faq-chevron" aria-hidden="true">▾</span>
+                    </button>
+                    <div class="faq-answer" id="faq-a3">
+                        Certaines fonctionnalités de reconnaissance vocale nécessitent une connexion Internet pour fonctionner de manière optimale. Cependant, un mode hors ligne basique est disponible avec des capacités limitées.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a4">
+                        Puis-je personnaliser les polices et les couleurs dans le mode dyslexie ?
+                        <span class="faq-chevron" aria-hidden="true">▾</span>
+                    </button>
+                    <div class="faq-answer" id="faq-a4">
+                        Oui ! OpenLautrec offre de nombreuses options de personnalisation pour le mode dyslexie, incluant le choix des polices, la coloration des syllabes, l'espacement et les contrastes. Accédez aux paramètres d'accessibilité depuis le menu principal.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a5">
+                        Comment puis-je signaler un bug ou suggérer une amélioration ?
+                        <span class="faq-chevron" aria-hidden="true">▾</span>
+                    </button>
+                    <div class="faq-answer" id="faq-a5">
+                        Utilisez le formulaire de contact ci-dessus en sélectionnant « Signaler un bug » ou « Suggestion de fonctionnalité » comme sujet. Vous pouvez également ouvrir une issue directement sur notre page GitHub pour les utilisateurs plus techniques.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a6">
+                        OpenLautrec est-il vraiment gratuit ?
+                        <span class="faq-chevron" aria-hidden="true">▾</span>
+                    </button>
+                    <div class="faq-answer" id="faq-a6">
+                        Oui, OpenLautrec est entièrement gratuit et open-source sous licence MIT. Il n'y a aucun coût caché, aucun abonnement et aucune publicité. Le projet est développé pour servir la communauté éducative.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="assets/logo.ico" alt="" width="50" height="50">
+                <span class="logo-text">OpenLautrec</span>
+            </div>
+            <p>Développé avec ❤️ pour les élèves de l'EREA Toulouse-Lautrec</p>
+            <p>Un projet open-source sous licence MIT</p>
+            <nav class="footer-links" aria-label="Liens de pied de page">
+                <a href="https://github.com/Zyvaouech23" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <p class="footer-copy">© 2026 OpenLautrec — Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js" defer></script>
+    <script src="assets/js/contact.js" defer></script>
+</body>
+</html>

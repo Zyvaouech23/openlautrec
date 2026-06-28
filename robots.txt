@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://openlautrec-se4fs.onrender.com/sitemap.xml

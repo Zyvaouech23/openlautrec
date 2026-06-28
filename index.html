@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenLautrec — Traitement de texte accessible et gratuit</title>
+
+    <meta name="description" content="OpenLautrec est un traitement de texte libre et gratuit développé en Python pour les élèves de l'EREA Toulouse-Lautrec : reconnaissance et synthèse vocale, mode dyslexie, calculatrice et géométrie intégrées.">
+    <meta name="author" content="OpenLautrec">
+    <meta name="theme-color" content="#FF6B35">
+    <link rel="canonical" href="https://openlautrec-se4fs.onrender.com/">
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:title" content="OpenLautrec — Traitement de texte accessible et gratuit">
+    <meta property="og:description" content="Un traitement de texte libre pensé pour l'accessibilité : reconnaissance et synthèse vocale, mode dyslexie, calculatrice et géométrie intégrées.">
+    <meta property="og:url" content="https://openlautrec-se4fs.onrender.com/">
+    <meta property="og:image" content="assets/logo.svg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="OpenLautrec — Traitement de texte accessible">
+    <meta name="twitter:description" content="Un traitement de texte libre et gratuit pensé pour l'accessibilité.">
+
+    <link rel="icon" type="image/ico" href="assets/logo.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "OpenLautrec",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "Windows, macOS, Linux",
+        "description": "Traitement de texte libre et gratuit pensé pour l'accessibilité : reconnaissance et synthèse vocale, mode dyslexie, calculatrice et géométrie intégrées.",
+        "softwareVersion": "1.4.12",
+        "license": "https://opensource.org/licenses/MIT",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+        }
+    }
+    </script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Aller au contenu principal</a>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo" data-route="home" aria-label="OpenLautrec, accueil">
+                <img src="assets/logo.ico" alt="" width="40" height="40">
+                <span class="logo-text">OpenLautrec</span>
+            </a>
+            <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#" data-route="home">Accueil</a></li>
+                <li><a href="#features" data-route="features">Fonctionnalités</a></li>
+                <li><a href="#download" data-route="download">Télécharger</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main id="main">
+    <div id="home-page" class="page-section active">
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1>Le traitement de texte <span class="highlight">pour tous</span></h1>
+                    <p>OpenLautrec est un logiciel de traitement de texte innovant développé en Python, spécialement conçu pour les élèves de l'EREA Toulouse-Lautrec avec des besoins d'accessibilité avancés.</p>
+                    <div class="cta-buttons">
+                        <a href="#download" data-route="download" class="btn btn-primary">Télécharger gratuitement</a>
+                        <a href="#features" data-route="features" class="btn btn-secondary">Découvrir les fonctionnalités</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="software-mockup" aria-hidden="true">
+                        <div class="mockup-header">
+                            <div class="mockup-dot dot-red"></div>
+                            <div class="mockup-dot dot-yellow"></div>
+                            <div class="mockup-dot dot-green"></div>
+                        </div>
+                        <div class="mockup-content">
+                            <p>🎤 Reconnaissance vocale active...</p>
+                            <p>📝 "Bonjour, je m'appelle..."</p>
+                            <p style="color: var(--primary); font-weight: 700;">✓ Mode dyslexie activé</p>
+                            <p style="margin-top: 2rem; opacity: 0.6;">Tapez ou parlez pour commencer...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Des fonctionnalités pensées pour l'accessibilité</h2>
+                <p class="section-subtitle">OpenLautrec intègre des outils innovants pour faciliter l'apprentissage et l'autonomie</p>
+                <div class="features-grid">
+                    <div class="feature-card fade-in">
+                        <h3>Reconnaissance vocale</h3>
+                        <p>Dictez vos textes naturellement. OpenLautrec convertit votre voix en texte en temps réel avec une précision remarquable.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <h3>Synthèse vocale</h3>
+                        <p>Écoutez vos textes lus à voix haute. Parfait pour la relecture et la vérification de vos écrits.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <h3>Mode dyslexie</h3>
+                        <p>Police adaptée, espacement optimisé et coloration syllabique pour faciliter la lecture et l'écriture.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <h3>Calculatrice intégrée</h3>
+                        <p>Effectuez vos calculs sans quitter votre document. Module complet avec toutes les opérations essentielles.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <h3>Module géométrie</h3>
+                        <p>Créez des figures géométriques directement dans vos documents avec des outils intuitifs.</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <h3>100% Python</h3>
+                        <p>Développé entièrement en Python, un logiciel libre, open-source et personnalisable selon vos besoins.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="features-page" class="page-section">
+        <section class="features-detailed">
+            <div class="container">
+                <h2 class="section-title">Toutes les fonctionnalités</h2>
+                <p class="section-subtitle">Découvrez en détail ce qui fait d'OpenLautrec un outil unique</p>
+
+                <div class="feature-detail fade-in">
+                    <h3>🎤 Reconnaissance vocale vers texte</h3>
+                    <span class="feature-badge">Dictée en temps réel</span>
+                    <p>La technologie de reconnaissance vocale intégrée permet aux élèves de dicter leurs textes naturellement, sans avoir à taper au clavier. Cette fonctionnalité est particulièrement utile pour les élèves ayant des difficultés motrices ou d'écriture.</p>
+                    <ul>
+                        <li>Reconnaissance en français avec haute précision</li>
+                        <li>Conversion en temps réel pendant que vous parlez</li>
+                        <li>Correction automatique des erreurs courantes</li>
+                        <li>Support de la ponctuation vocale ("virgule", "point", etc.)</li>
+                        <li>Possibilité de dicter des commandes de formatage</li>
+                    </ul>
+                </div>
+
+                <div class="feature-detail fade-in">
+                    <h3>🔊 Synthèse vocale (Texte vers Parole)</h3>
+                    <span class="feature-badge">Lecture audio</span>
+                    <p>OpenLautrec peut lire à voix haute n'importe quel texte sélectionné, permettant aux élèves de vérifier leur travail par l'écoute et favorisant la compréhension.</p>
+                    <ul>
+                        <li>Voix naturelles et fluides en français</li>
+                        <li>Contrôle de la vitesse de lecture</li>
+                        <li>Surlignage synchronisé du texte lu</li>
+                        <li>Lecture de mots, phrases ou documents entiers</li>
+                        <li>Pause et reprise à tout moment</li>
+                    </ul>
+                </div>
+
+                <div class="feature-detail fade-in">
+                    <h3>👁️ Mode dyslexie</h3>
+                    <span class="feature-badge">Accessibilité visuelle</span>
+                    <p>Un mode spécialement conçu pour faciliter la lecture et l'écriture pour les personnes dyslexiques, avec des adaptations visuelles scientifiquement prouvées.</p>
+                    <ul>
+                        <li>Police OpenDyslexic avec lettres différenciées</li>
+                        <li>Espacement entre lettres et lignes augmenté</li>
+                        <li>Coloration alternée des syllabes</li>
+                        <li>Surlignage de la ligne active</li>
+                        <li>Contrastes optimisés pour réduire la fatigue visuelle</li>
+                        <li>Règle de lecture virtuelle ajustable</li>
+                    </ul>
+                </div>
+
+                <div class="feature-detail fade-in">
+                    <h3>🧮 Module de calculatrice</h3>
+                    <span class="feature-badge">Outils mathématiques</span>
+                    <p>Une calculatrice complète intégrée directement dans l'éditeur de texte pour effectuer tous types de calculs sans changer d'application.</p>
+                    <ul>
+                        <li>Opérations de base (addition, soustraction, multiplication, division)</li>
+                        <li>Fonctions scientifiques (racine carrée, puissance, pourcentage)</li>
+                        <li>Historique des calculs</li>
+                        <li>Insertion directe des résultats dans le texte</li>
+                        <li>Support des expressions mathématiques complexes</li>
+                        <li>Mode calculatrice vocale (dictez vos opérations)</li>
+                    </ul>
+                </div>
+
+                <div class="feature-detail fade-in">
+                    <h3>📐 Module géométrie</h3>
+                    <span class="feature-badge">Création graphique</span>
+                    <p>Des outils de dessin géométrique permettant de créer des figures et schémas directement dans vos documents.</p>
+                    <ul>
+                        <li>Outils de tracé : lignes, cercles, polygones, angles</li>
+                        <li>Règle et compas virtuels</li>
+                        <li>Mesures automatiques (longueurs, angles, aires)</li>
+                        <li>Grille et repères magnétiques</li>
+                        <li>Annotation et légendage des figures</li>
+                        <li>Export des figures en haute qualité</li>
+                    </ul>
+                </div>
+
+                <div class="feature-detail fade-in">
+                    <h3>⚙️ Autres fonctionnalités</h3>
+                    <span class="feature-badge">Et plus encore...</span>
+                    <p>OpenLautrec inclut toutes les fonctionnalités essentielles d'un traitement de texte moderne, avec une interface simplifiée et accessible.</p>
+                    <ul>
+                        <li>Formatage de texte complet (gras, italique, souligné, couleurs)</li>
+                        <li>Vérification orthographique et grammaticale</li>
+                        <li>Insertion d'images et de tableaux</li>
+                        <li>Modèles de documents prédéfinis</li>
+                        <li>Export en PDF, DOCX et autres formats</li>
+                        <li>Interface personnalisable avec thèmes clairs et sombres</li>
+                        <li>Raccourcis clavier configurables</li>
+                        <li>Sauvegarde automatique</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="download-page" class="page-section">
+        <section class="download">
+            <div class="download-container">
+                <h2>Télécharger OpenLautrec</h2>
+                <p>Gratuit, libre et open-source. Disponible pour Windows, macOS et Linux.</p>
+
+                <div class="download-dropdown">
+                    <a href="https://github.com/Zyvaouech23/openlautrec/releases/download/OpenLautrec/OpenLautrec-Setup.exe"
+                       class="btn btn-primary download-main">
+                       Télécharger v1.4.11
+                    </a>
+
+                    <button class="btn btn-primary download-arrow" type="button"
+                            aria-label="Choisir une autre plateforme" aria-haspopup="true" aria-expanded="false">▾</button>
+
+                    <div class="download-menu" role="menu" aria-label="Plateformes disponibles">
+                        <a role="menuitem" href="https://github.com/Zyvaouech23/openlautrec/releases/download/OpenLautrec/OpenLautrec-Setup.exe">
+                            Windows (.exe)
+                        </a>
+                        <a role="menuitem" href="https://github.com/Zyvaouech23/openlautrec/releases/download/OpenLautrec/OpenLautrec-Setup.deb">
+                            Linux (.deb)
+                        </a>
+                    </div>
+                </div>
+
+                <div class="download-info">
+                    <h3>Configuration requise</h3>
+                    <ul class="requirements">
+                        <li>Python 3.7 ou supérieur (non obligatoire, logiciel déjà compilé)</li>
+                        <li>2 GB de RAM minimum (4 GB recommandé)</li>
+                        <li>290 MB d'espace disque disponible</li>
+                        <li>Microphone pour la reconnaissance vocale</li>
+                        <li>Haut-parleurs ou casque pour la synthèse vocale</li>
+                        <li>Windows 10/11, macOS 10.14+, ou Linux (Ubuntu, Debian)</li>
+                    </ul>
+                </div>
+
+                <div class="download-info warning-note">
+                    <h3>Informations d'accessibilité</h3>
+                    <p>
+                        <strong>Avertissement :</strong> ce logiciel est et doit rester utilisé à des fins éducatives.
+                        La version disponible n'est probablement pas la dernière version d'OpenLautrec.
+                        La version finale de développement (bugs et ralentissements probables, à ne pas déployer
+                        pour une utilisation scolaire) n'est accessible qu'en contactant le développeur.
+                    </p>
+                </div>
+
+                <div class="download-info">
+                    <h3>Installation</h3>
+                    <ol class="install-steps">
+                        <li>Téléchargez le fichier d'installation ci-dessus.</li>
+                        <li>Assurez-vous d'avoir installé toutes les mises à jour de votre PC.</li>
+                        <li>Exécutez le programme d'installation <code>OpenLautrec-Setup.exe</code>.</li>
+                        <li>Suivez les instructions à l'écran.</li>
+                        <li>Lancez OpenLautrec depuis votre menu d'applications.</li>
+                    </ol>
+                </div>
+
+                <div class="download-info">
+                    <h3>Besoin d'aide ?</h3>
+                    <p>Consultez notre documentation ou contactez le support technique du groupe OpenLautrec pour toute assistance.</p>
+                    <p style="margin-top: 1.5rem;">
+                        <a href="contact.html" class="btn btn-secondary">Contactez-nous 📞</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="assets/logo.ico" alt="" width="50" height="50">
+                <span class="logo-text">OpenLautrec</span>
+            </div>
+            <p>Développé avec ❤️ pour les élèves de l'EREA Toulouse-Lautrec</p>
+            <p>Un projet open-source sous licence MIT</p>
+            <nav class="footer-links" aria-label="Liens de pied de page">
+                <a href="https://github.com/Zyvaouech23" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="contact.html">Contact et contribution</a>
+            </nav>
+            <p class="footer-copy">© 2026 OpenLautrec — Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js" defer></script>
+</body>
+</html>
