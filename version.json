@@ -1,6 +1,7 @@
 {
-    "version": "1.5.01",
-    "download_url": "https://github.com/Zyvaouech23/openlautrec/releases/download/OpenLautrec/OpenLautrec-Setup.exe",
-    "notes": "Passage a une version stable + correction de toutes les bugs + securite accrue",
-    "checksum_key": "t79if5768re57dyh45678i575h7i4tertAetw5rya3ey35y46u7kkikk67u56u6ujtyu687tyhkjk768767y4j566564374898rthjtyu54gherrfghre65uthjrdfh45y46uchrtyjhr6u756utyuj657rnjgfhnt65574yj6746t76rth45yryjvhgj5rt6ty7u546hthjmg7ujytugfjt7r6ugrf"
+  "version": "1.5.02",
+  "download_url": "https://github.com/Zyvaouech23/openlautrec/releases/download/OpenLautrec/OpenLautrec-Setup.exe",
+  "notes": "Les fichiers .olc s'ouvrent et se modifient désormais aussi dans Word et LibreOffice (les anciens .olc restent lisibles). Installation pour tout le parc dans Program Files, mises à jour automatiques et signées, dictionnaires intégrés au logiciel, paramètres regroupés dans un seul fichier, lecture vocale améliorée (arrêt immédiat, plus de voix Windows reconnues).",
+  "sha256": "a2314d461e92de07c1c56a0bdda3fc7aa49ecb844a87460079c70ea487897fba",
+  "signature": "SLd/dK9M0A855uW5cFZEV3pQQKtJvfc36Wp48qAzljHTgCw4ITL04zUv1Q6RxCQy6/YeJvfVrplV0q7pFUK/vDF3shdRXZ+qd0Ibs/PWqJ+qFH5LmFBeDRndI5tsysN6Dueb4SXzCqOvC1l81ZZrsK/aiJELdFdojNunIkz3e5iFKX+bJ8XahB9igT36bKBZCHq3pymnt9QLr23uZ0ZQokA0S1J5gmmvxl9Yh5SqeyHQ9oi7qdtV5lxvEkx8MZx+FiZVYcZM3vT10Cy2jOj4uznMZn8aIBXdtn5zcyp/tVOIpZJGPQM0dT1TuTQ3F0UqG+FN25rTpIcKCO/pWLCBfvpBa1ucob4uWC+tt6N+5s5zr//PjdJHKb+3qi8Ly48h2A767piRSt4fT2+zvExLbLgsPmBWpYDomCLm9sQ8YRiKNmwKHr+m4nY0A3NBaX1ccBS69+v5ll7c2hrSGK8xSmCghYTssKbF+NDEh/amgZYAEeUifSfzwUtGeG1AyKhg"
 }
