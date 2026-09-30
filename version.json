@@ -1,7 +1,7 @@
 {
-  "version": "1.5.02",
+  "version": "1.5.03",
   "download_url": "https://github.com/Zyvaouech23/openlautrec/releases/download/OpenLautrec/OpenLautrec-Setup.exe",
-  "notes": "Les fichiers .olc s'ouvrent et se modifient désormais aussi dans Word et LibreOffice (les anciens .olc restent lisibles). Installation pour tout le parc dans Program Files, mises à jour automatiques et signées, dictionnaires intégrés au logiciel, paramètres regroupés dans un seul fichier, lecture vocale améliorée (arrêt immédiat, plus de voix Windows reconnues).",
-  "sha256": "a2314d461e92de07c1c56a0bdda3fc7aa49ecb844a87460079c70ea487897fba",
-  "signature": "SLd/dK9M0A855uW5cFZEV3pQQKtJvfc36Wp48qAzljHTgCw4ITL04zUv1Q6RxCQy6/YeJvfVrplV0q7pFUK/vDF3shdRXZ+qd0Ibs/PWqJ+qFH5LmFBeDRndI5tsysN6Dueb4SXzCqOvC1l81ZZrsK/aiJELdFdojNunIkz3e5iFKX+bJ8XahB9igT36bKBZCHq3pymnt9QLr23uZ0ZQokA0S1J5gmmvxl9Yh5SqeyHQ9oi7qdtV5lxvEkx8MZx+FiZVYcZM3vT10Cy2jOj4uznMZn8aIBXdtn5zcyp/tVOIpZJGPQM0dT1TuTQ3F0UqG+FN25rTpIcKCO/pWLCBfvpBa1ucob4uWC+tt6N+5s5zr//PjdJHKb+3qi8Ly48h2A767piRSt4fT2+zvExLbLgsPmBWpYDomCLm9sQ8YRiKNmwKHr+m4nY0A3NBaX1ccBS69+v5ll7c2hrSGK8xSmCghYTssKbF+NDEh/amgZYAEeUifSfzwUtGeG1AyKhg"
+  "notes": "Formes (plus de 150, comme dans Word) et zones de texte flottantes : déplacement à la souris ou aux flèches, taille, rotation, modification des points ; elles restent modifiables dans Word et LibreOffice. Figures de la feuille de géométrie insérables dans le document. Formes et zones de texte des documents Word et LibreOffice conservées à l'ouverture. Fichiers plus légers (photos gardées en JPEG) et enregistrement plus rapide. Pagination identique dans Word et LibreOffice (format A4). Version Linux signée.",
+  "sha256": "5a632537c6ea6991aa71da9196fddf4699a9c54d3c21e30f50f8445d66f14bbd",
+  "signature": "jctM2BIwF0pepU041jxV2pEIoyneH5oY7Y9UJDs2ZLwOIfR90HkJwxR8UZFPlzYiScjgu2u6ai3kvpcdCwFYCCyV8rUcSusDZkTgL4PfhD1rsqeYh9+0zqplHCVbDjJBHzP/sAzYjdYqcxu9BaMQ0GhagnnSZplw9vJfvMI8B6lGHp/ujiwTz6IBvwKUQ7xglvd3vxXgZwbg3cmjMRaF1NmHcCmk0RYlBP+YuM8WFA563Sy1QNhdwATJ8+wWttKdWEigyWOs2sod9PFq4SPPuZZh9BdAhpVFzqdTKHlXKGyU49+c3ldLUfuXjP+mewuOHY9VjhG73GiwwI9SkvMJvRBnJxMaSj4m3bqDaCbVmC0GHWyWdKSm7v6zFaSP+EIc+6yhr1Q3Cgppzx0f+VwkCtc734DDEh89aWhHM1QC5w9r3abBEAkBf0rfaxEHAa3UqG7dBrKLoIWP+BK9CGmFPpkrwBbBuc7R4mIUKFcK1Cvnfs4AU8YkJFd6dzO9Qm8G"
 }
